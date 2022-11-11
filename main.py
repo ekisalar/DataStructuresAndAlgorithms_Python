@@ -1,10 +1,15 @@
 from hash_tables import HashTable
+from first_recurring_item import FirstRecurringItem
 from two_sums import TwoSum
 
-myHashTable = HashTable(3)  # --> Create size 3 hash table
-myHashTable.set('grapes', 10000)
-myHashTable.set('apples', 10000)
-myHashTable.set('bananas', 10000)
-myHashTable.set('carrot', 10000)
-print(myHashTable.get('apples'))
-print("keys", myHashTable.keys())
+firstRecurringItem = FirstRecurringItem()
+# result1 = recurringItemInArray.by_brute_force([2, 5, 1, 2, 3, 5, 1, 2, 4])
+# result2 = recurringItemInArray.by_brute_force([2, 1, 1, 2, 3, 5, 1, 2, 4])
+# result3 = recurringItemInArray.by_brute_force([2, 3, 4, 5])
+# print(result1, result2, result3)
+
+result1 = firstRecurringItem.by_hash_table([2, 5, 1, 2, 3, 5, 1, 2, 4])
+result2 = firstRecurringItem.by_hash_table([2, 1, 1, 2, 3, 5, 1, 2, 4])
+result3 = firstRecurringItem.by_hash_table([2, 3, 4, 5])
+print(result1, result2, result3)
+
