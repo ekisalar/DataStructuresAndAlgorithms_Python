@@ -4,12 +4,13 @@
 # Get function get the entered key's value from bucket which place in hashcode address
 
 # Example
-# myHashTable = HashTable(3) --> Create size 3 hash table
+# myHashTable = HashTable(3)  # --> Create size 3 hash table
 # myHashTable.set('grapes', 10000)
 # myHashTable.set('apples', 10000)
 # myHashTable.set('bananas', 10000)
 # myHashTable.set('carrot', 10000)
 # print(myHashTable.get('apples'))
+# print("keys", myHashTable.keys())
 
 class HashTable:
     data = [["grapes", 10000], ["apples", 5000]]
@@ -32,6 +33,16 @@ class HashTable:
             self.data[address] = []
         self.data[address].append([key, value])
         print(self.data)
+
+    def keys(self):
+        key_arrays = []
+        for bucket in self.data:
+            if len(bucket) > 1:
+                for item in bucket:
+                    key_arrays.append(item[0])
+            else:
+                key_arrays.append(bucket[0][0])
+        return key_arrays
 
     def get(self, key):
         hashcode = self._hash(key)
