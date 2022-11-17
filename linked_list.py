@@ -41,12 +41,24 @@ class LinkedList:
             counter += 1
         print(array)
 
-    def traverse(self, index):
+    def insert(self, index: int, value):
+        if index >= self.length:
+            return self.append(value)
+        previous_node = self.traverse(index - 1)
+        previous_node.next_node = Node(value, previous_node.next_node)
+        self.length += 1
+
+    def remove(self, index: int):
+        previous_node = self.traverse(index - 1)
+        previous_node.next_node = previous_node.next_node.next_node
+        self.length -= 1
+
+    def traverse(self, index: int) -> Node:
         counter = 0
         current_node = self.data.header
         if index <= 0:
             return current_node
-        if index > self.length:
+        if index >= self.length:
             return self.data.tail
         while counter < index:
             current_node = current_node.next_node
