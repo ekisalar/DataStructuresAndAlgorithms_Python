@@ -8,7 +8,8 @@ class Node:
 
 
 class Data:
-    None
+    tail = None
+    head = None
 
 
 class LinkedList:
@@ -16,8 +17,8 @@ class LinkedList:
     length = 0
 
     def __init__(self, value):
-        self.data.header = Node(value, None)
-        self.data.tail = self.data.header
+        self.data.head = Node(value, None)
+        self.data.tail = self.data.head
         self.length += 1
 
     def append(self, value):
@@ -27,14 +28,14 @@ class LinkedList:
         self.length += 1
 
     def prepend(self, value):
-        new_node = Node(value, self.data.header)
-        self.data.header = new_node
+        new_node = Node(value, self.data.head)
+        self.data.head = new_node
         self.length += 1
 
     def print_values(self):
         counter = 0
         array = []
-        current_node = self.data.header
+        current_node = self.data.head
         while counter < self.length:
             array.append(current_node.value)
             current_node = current_node.next_node
@@ -55,7 +56,7 @@ class LinkedList:
 
     def traverse(self, index: int) -> Node:
         counter = 0
-        current_node = self.data.header
+        current_node = self.data.head
         if index <= 0:
             return current_node
         if index >= self.length:
@@ -64,3 +65,45 @@ class LinkedList:
             current_node = current_node.next_node
             counter += 1
         return current_node
+
+    # Interview question
+    # Reverse the linked list
+    # [5, 45, 23, 17, 56] ->
+    # [56, 17, 23, 45, 5]
+
+    def reverse(self) -> []:
+        if self.data.head.next_node is None:
+            return self.data.head
+
+        first = self.data.head
+        self.data.tail = self.data.head
+        second = first.next_node
+        while second is not None:
+            temp = second.next_node
+            second.next_node = first
+            first = second
+            second = temp
+        self.data.tail.next_node = None
+        self.data.head = first
+        return self.print_values()
+
+
+# linkedList = LinkedList(25)
+# linkedList.append(35)
+# linkedList.append(45)
+# linkedList.prepend(15)
+# linkedList.print_values()
+# linkedList.insert(1, 20)
+# linkedList.print_values()
+# linkedList.remove(2)
+# linkedList.print_values()
+# print("finished")
+
+# linkedList = LinkedList(5)
+# linkedList.append(10)
+# linkedList.append(15)
+# linkedList.append(20)
+# linkedList.append(25)
+# linkedList.append(30)
+# linkedList.print_values()
+# linkedList.reverse()
