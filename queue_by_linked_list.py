@@ -51,3 +51,16 @@ class Queue:
             current_node = current_node.next_node
             counter += 1
         return print(array)
+
+
+# queue = Queue()
+#
+# queue.enqueue("Jack")
+# queue.enqueue("Jones")
+# queue.enqueue("James")
+# queue.enqueue("Jany")
+# queue.print()
+# print(queue.peek().value)
+# queue.dequeue()
+# queue.print()
+# print(queue.peek().value)
