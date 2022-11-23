@@ -76,3 +76,20 @@ class BinarySearchTree:
 #
 #
 #     if node_to_replace is None:
+
+
+# Example
+#         9
+#    4        20
+# 1     6  15    170
+# binary_search_tree = BinarySearchTree()
+# binary_search_tree.insert(9)
+# binary_search_tree.insert(4)
+# binary_search_tree.insert(20)
+# binary_search_tree.insert(1)
+# binary_search_tree.insert(6)
+# binary_search_tree.insert(15)
+# binary_search_tree.insert(170)
+# [previous, current] = binary_search_tree.lookup(20)
+# json_data = json.dumps(current.data, default=lambda o: o.__dict__, indent=4)
+# print(json_data)
