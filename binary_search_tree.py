@@ -16,18 +16,18 @@ class BinarySearchTree:
             self.data = new_node
             return
         else:
-            target_node = self.data
+            current_node = self.data
             previous_node = None
-            while target_node is not None:
-                if value > target_node.value:
+            while current_node is not None:
+                if value > current_node.value:
                     # left direction
-                    previous_node = target_node
-                    target_node = target_node.right
+                    previous_node = current_node
+                    current_node = current_node.right
 
-                elif value < target_node.value:
+                elif value < current_node.value:
                     # right direction
-                    previous_node = target_node
-                    target_node = target_node.left
+                    previous_node = current_node
+                    current_node = current_node.left
 
             if value > previous_node.value:
                 previous_node.right = new_node
@@ -36,18 +36,43 @@ class BinarySearchTree:
 
     def lookup(self, value):
         current_node = self.data
+        previous_node = None
         level = 0
         while current_node is not None and current_node.value != value:
             level += 1
             if value > current_node.value:
+                previous_node = current_node
                 current_node = current_node.right
             elif value < current_node.value:
+                previous_node = current_node
                 current_node = current_node.left
+        return previous_node, current_node
 
-        return f"{current_node.value} found at level {level}" if current_node is not None else "Not Found"
+## Not completed
 
-    # def traverse(self):
-    #     tree = Node(self.data.value)
-    #     tree.left = None if self.data.left is None else self.traverse(self.data.left)
-    #     tree.right = None if self.data  .right is None else self.traverse(self.data.right)
-    #     return tree
+# def remove(self, value):
+#
+#     [previous_node, node_to_remove] = self.lookup(value)
+#     node_to_replace = None
+#     if node_to_remove.right is not None:
+#         if node_to_remove.right.left is not None:
+#             node_to_replace = node_to_remove.right.left
+#
+#         else:
+#             node_to_replace = node_to_remove.right
+#         if previous_node.left == node_to_remove:
+#             previous_node.left = node_to_replace
+#         else:
+#             previous_node.right = node_to_replace
+#     elif node_to_remove.left is not None:
+#         node_to_replace = node_to_remove.left
+#
+#
+#     if previous_node.left == node_to_remove:
+#         if node_to_replace is None:
+#             previous_node.left
+#
+#     if previous_node.right == node_to_remove:
+#
+#
+#     if node_to_replace is None:
