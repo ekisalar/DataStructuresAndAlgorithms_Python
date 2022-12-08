@@ -31,3 +31,19 @@ def memoized_add_to_80_closure():
             return cache_closure[n]
 
     return closure_function
+
+
+
+
+# print(memoized_add_to_80(5))
+# print(memoized_add_to_80(5))
+# print(memoized_add_to_80(5))
+
+
+memoized = memoized_add_to_80_closure()
+
+
+print(memoized(5))
+print(memoized(5))
+print(memoized(5))
+
