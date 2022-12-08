@@ -1,7 +1,17 @@
-from factorial import find_factorial_iterative, find_factorial_recursive
+from memoization import *
 
-result = find_factorial_iterative(5)
-print(result)
+lambda_test = lambda num: \
+    num + 80000
+print(lambda_test(5))
 
-result1 = find_factorial_recursive(5)
-print(result1)
+# print(memoized_add_to_80(5))
+# print(memoized_add_to_80(5))
+# print(memoized_add_to_80(5))
+
+
+memoized = memoized_add_to_80_closure()
+
+print(memoized(5))
+print(memoized(5))
+print(memoized(5))
+
